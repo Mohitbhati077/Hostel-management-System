@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Notice</h1>
+    </header>
+    <div class="navbar">
+    <nav>
+    <ul>
+            <li><a href="admin_dashboard.php">Home</a></li>
+            <li><a href="manage_room.php">Manage Room</a></li>
+            <li><a href="view_student.php">Manage Students</a></li>
+            <li><a href="manage_reservation.php">Manage Reservation</a></li>
+            <li><a href="manage_payment.php">Manage Payment</a></li>
+            <li><a href="notice.html">Notice</a></li>
+            <li><a href="reminder.php">Reminder</a></li>
+            <li><a href="#" id="logout">Log Out</a></li>
+        </ul>
+    </nav>
+    </div>
+     <main>
+          <section class="send-notice-form">
+             <h2> Compose Notice</h2>
+             <!-- Add this button to your reminder.php file -->
+              <button onclick="location.href='view_notice.php';">View Notice</button>
+               <!-- <a href="view_notices.php" class="view-button">View Notices</a> -->
+               <form action="notice.php" method="post">
+               <label for="title">Notice Title:</label>
+               <input type="text"  id="text" name="title" required><br>
+
+                <label for="message">Notice Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+
+                <input type="submit" value="Send Notice">
+            
+</form>
+</section>
+</main>    
+</body>
+</html>

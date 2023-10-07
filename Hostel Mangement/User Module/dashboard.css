@@ -1,0 +1,159 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.parent{
+    display: flex;
+}
+.nav{
+    width: 17rem;
+    background: #003366;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    z-index: 2;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .5rem;
+    margin-right: .6rem;
+}
+.title:hover{
+    cursor: pointer;
+}
+.title img{
+    width: 80px;
+    aspect-ratio: 1;
+}
+.title p{
+    text-align: center;
+    color: white;
+    margin-top: .8rem;
+    font-size: 2.5rem;
+    letter-spacing: .5rem;
+    font-weight:600;
+    font-family:roboto;
+}
+.navbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 4rem;
+}
+.nav-list{
+    list-style: none;
+    font-size: 1.3rem;
+    margin-right: 2rem;
+    margin-left: 1rem;
+    padding-left: 1.5rem;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+.nav-list a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+.nav-list:hover{
+    cursor: pointer;
+    background-color: rgb(27, 93, 139, 0.2);
+    border-radius: .2rem;
+    -webkit-border-radius: .2rem;
+    -moz-border-radius: .2rem;
+    -ms-border-radius: .2rem;
+    -o-border-radius: .2rem;
+}
+.nav-list__logo{
+    width: 2.5rem;
+    aspect-ratio: 1;
+    padding-right: .5rem;
+    vertical-align: middle;
+    margin-bottom: .5rem;
+}
+.screen{
+    width:  100%;
+    background: #f9f9f9;
+    height: AUTO;
+    padding-left: 17rem;
+    padding-right: 2rem;
+    padding-top: 4rem;
+}
+header{
+    position: fixed;
+    top: 0;
+    padding: 1rem;
+    padding-right: 3rem;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.2);
+}
+.profile{
+    width: 40px;
+    aspect-ratio: 1;
+    margin-left: auto;
+}
+.profile:hover{
+    cursor: pointer;
+}
+.screen-div{
+    width: 100%;
+    margin: 2rem 1rem 1rem;
+    border-radius: .5rem;
+    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.3);
+    min-height: 15rem;
+    height: auto;
+    color: #003366;
+    background: white;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+.sub-title{
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.border{
+    border-bottom: 2px solid #003366;
+    width: 40%;
+    border-bottom-style:ridge;
+}
+/* Add these styles for the Notice section */
+.notice ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notice li {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.notice li strong {
+    font-size: 1.2rem;
+    color: #003366;
+    margin-bottom: 0.5rem;
+}
+
+.notice li p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.notice li p:last-child {
+    color: #777;
+    margin-top: 0.5rem;
+}
