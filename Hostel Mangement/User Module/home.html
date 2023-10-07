@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="./home.js"></script>
+</head>
+<body>
+     <div class="container" id="containerDiv">
+        <div class="building">
+            <img src="images/building.svg" alt="hostel icon" class="buildingImg">
+        </div>
+        <p class="text">Welcome To Our Hostel!</p>
+     </div>
+     <div class="mainDiv" id="mainDiv">
+        <div class="upper">
+            <p>ICCS</p>
+        </div>
+        <img src="images/hamburger.svg" alt="cross" class="nav-toggle open" height="40" width="40" onclick="openNav()"/>
+        <div class="navBar" id="navBar">
+            <img src="images/cross.svg" alt="cross" class="nav-toggle close" height="30" width="30" onclick="closeNav()"/>
+            <div class="title">
+                <ul>
+                    <li class="title-text">ICCS</li>
+                    <li class="navL"><a href="#facilities">Facilities</a></li>
+                    <li class="navL"><a href="#gallery">Gallery</a></li>
+                    <li class="navL"><a href="#contact">Contact Us</a></li>
+                    <li class="navL"><a href="#reviews">Reviews</a></li>
+                    <li class="navL"><a href="register.html" target="_blank">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="intro flex" id="contact">
+            <div class="intro__text">
+                <h2>Hostel ICCS</h2>
+                <h4>Address:</h4>
+                <p><i>College Campus, New Mumbai Highway, Tathawade, Pune, Maharashtra 411033</i></p>
+                <h4> Contact Us:</h4>
+                <p>+91 9912345678</p>
+                <p><a href="https://maps.app.goo.gl/teoumaihFWikjVTu5" class="intro__link">Click to see us on Google Maps</a></p>
+            </div>
+        </div>
+        <div class="gallery" id="gallery">
+            <h3>Gallery</h3>
+            <div class="gallery__images flex">
+                <figure>
+                    <img src="images/img-0.jpg" alt="" class="gallery__images--image">
+                    <figcaption>
+                        <p>Comfortable Spacious Rooms </p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/img-1.jpeg" alt="" class="gallery__images--image">
+                    <figcaption>
+                        <p>Hostel Canteen Area</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/img-2.jpg" alt="" class="gallery__images--image">
+                    <figcaption>
+                        <p>Common Indoor Games Area</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/img-3.jpg" alt="" class="gallery__images--image">
+                    <figcaption>
+                        <p>Common Hall</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/img-4.jpeg" alt="" class="gallery__images--image">
+                    <figcaption>
+                        <p>Comfortable Two Sharing Rooms</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/img-5.jpeg" alt="" class="gallery__images--image">
+                    <figcaption>
+                        <p>Multiple Sharing Beds</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+            <div class="facilities" id="facilities">
+                <h3>Our Facilities</h3>
+                <div class="facilities__container">
+                    <div class="facilities__container__column">
+                        <div class="desc-section">
+                            <h4>Essentials</h4>
+                            <span><img src="images/tick2.svg" alt="" class="tick">24/7 Water Supply, Power Supply, Security Service</span>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Wifi Available, Laundry Services, Supervisor for Hostelites</span>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Three time Meals/Mess, Fresh Purified Drinking Water</span>
+
+                        </div>
+                        <div class="image-section">
+                            <img src="images/facility1.png" alt="facility" class="facility-image" height="10rem">
+                        </div>
+                    </div>
+                    <div class="facilities__container__column">
+                        <div class="image-section">
+                            <img src="images/facility2.jpg" alt="facility" class="facility-image">
+                        </div>
+                        <div class="desc-section">
+                            <h4>Cleaning Service</h4>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Daily Room Cleaning</span>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Monthly Full Premise Cleaning</span>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Hygiene and Cleanliness Record Maintained</span>
+                        </div>
+                    </div>
+                    <div class="facilities__container__column">
+                        <div class="desc-section">
+                            <h4>Common Area for All</h4>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Common Sitting Area For Everyone</span>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Fun Indoor Games Available</span>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Open and Spacious Room for Any Activities</span>
+                        </div>
+                        <div class="image-section">
+                            <img src="images/facility3.jpg" alt="facility" class="facility-image">
+                        </div>
+                    </div>
+                    <div class="facilities__container__column">
+                        <div class="image-section">
+                            <img src="images/facility5.jpg" alt="facility" class="facility-image">
+                        </div>
+                        <div class="desc-section">
+                            <h4>Room Sharing</h4>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Room Sharing Options Available</span>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Two Bed-Room Sharing</span>
+                            <span><img src="images/tick2.svg" alt="" class="tick">Four Bed-Room Sharing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="reviews" id="reviews">
+            <h4>Student's Reviews</h4>
+        </div>
+     </div>
+</body>
+</html>

@@ -1,0 +1,410 @@
+/* for large screens */
+*{
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth !important;
+    font-family: Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+.building{
+    animation: shake 1s, rotate 2s 1s forwards;
+    -webkit-animation: shake 1s, rotate 2s 1s forwards;
+}
+@keyframes shake {
+    0%, 20%, 40%, 60%, 80%{
+        transform:rotate(5deg);
+        -webkit-transform:rotate(5deg);
+        -moz-transform:rotate(5deg);
+        -ms-transform:rotate(5deg);
+        -o-transform:rotate(5deg);
+}
+    10%, 30%, 50%, 70%, 90%{
+        transform: rotate(-5deg);
+        -webkit-transform: rotate(-5deg);
+        -moz-transform: rotate(-5deg);
+        -ms-transform: rotate(-5deg);
+        -o-transform: rotate(-5deg);
+}
+}
+@keyframes rotate {
+    100%{
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+}
+}
+.buildingImg{
+    width: 15rem;
+    height: 15rem;
+}
+.text{
+    font-weight: bold;
+    font-size: 2.3rem;
+    color: #4d4a4a;
+    visibility: hidden;
+    animation: zoom 2s 1s forwards;
+    -webkit-animation: zoom 2s 1s forwards;
+    align-self: center;
+}
+@keyframes zoom{
+    100%{
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+}
+}
+
+.mainDiv{
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    background: #f5f7f8;
+    padding-bottom: 5rem;
+}
+
+/* ---NAVIGATION BAR--- */
+.navBar{
+    width: 100%;
+    padding: 30px 30px;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    background:  #1d1a39;
+}
+
+.navBar ul{
+    display: flex;
+    justify-content: flex-end;
+}
+.title p{
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+.navBar li a{
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 1.25rem;
+    text-transform:capitalize;
+    padding: 5px 32px;
+}
+.navBar ul li{
+    display: inline-block;
+    list-style: none;
+    white-space: nowrap;
+    transition: border-botton 2s;
+    -webkit-transition: border-botton 2s;
+    -moz-transition: border-botton 2s;
+    -ms-transition: border-botton 2s;
+    -o-transition: border-botton 2s;
+}
+.navBar li a:hover{
+    border-bottom: #86a8e7 1px solid;
+}
+.nav-toggle{
+    display: none;
+}
+
+.upper{
+    display: none;
+}
+
+
+.intro{
+    background: url(images/hos.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    margin-top: 5rem;
+}
+.intro__text{
+    background-color: rgba(0,0,0, 0.55);
+    padding: 2rem;
+    padding-top: 0;
+    border-radius: .5rem;
+    width: 70%;
+    max-width: 800px;
+    color: white;
+    margin: 3.5rem 0;
+    margin-left: 2rem;
+    font-size: 1.2rem;
+}
+.intro__text h2{
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 2.2rem;
+}
+.intro__text p{
+    padding-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+.intro__text h4{
+    line-height: 2rem;
+    font-size: 1.3rem;
+    margin-top: 15px;
+}
+.intro__link{
+    color: white;
+}
+.intro__link a:visited{
+    color: white;
+}
+
+.gallery{
+    /* padding: 1rem; */
+    padding-left: 0;
+    background: white;
+    border-radius: 1rem;
+    margin: 2rem 1rem;
+}
+h3{
+    padding: 1.5rem 0 1rem 2rem;
+    font-size: 2.2rem;
+    color: #1d1a39;
+    letter-spacing: 1.5px;
+}
+.gallery__images{
+    /* padding: 2rem; */
+    flex-direction: row;
+    gap: 1rem;
+    overflow-x: scroll;
+    margin: 1rem 2rem;
+    padding-bottom: 2.5rem;
+}
+.gallery__images--image{
+    width: 550px;
+    height: 350px;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    -ms-border-radius: 5%;
+    -o-border-radius: 5%;
+}
+figcaption{
+    text-align: center;
+    color: #451952;
+    font-size: 1.3rem;
+    font-weight:bold;
+}
+.carouselBtn{
+    border: 0;
+    background: none;
+}
+
+.facilities{
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    padding-top: 0;
+    margin: 2rem 1rem;
+    height: auto;
+}
+.facilities h3{
+    text-align: center;
+    color: #1d1a39;
+    text-transform: capitalize;
+    padding: 2rem;
+}
+.facilities__container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 1rem auto;
+}
+.facilities__container__column{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desc-section{
+width: 50%;
+}
+.desc-section h4{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    margin-left: .5rem;
+}
+span{
+    display: inline-block;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    color: #1d1a39;
+}
+.tick{
+    width: 50px;
+    aspect-ratio: 1;
+    vertical-align: center;
+    padding-right: .5rem;
+}
+.image-section{
+    width: 40%;
+    text-align: end;
+}
+.facility-image{
+    width: 100%;
+    height: auto;
+}
+.reviews{
+    width: 100%;
+    padding: 2rem;
+    padding-top: 0;
+    background: white;
+    border-radius: 1rem;
+}
+.reviews h4{
+    padding: 1.5rem 0 1rem 2rem;
+    color: #1d1a39;
+    letter-spacing: 1.2px;
+    font-size: 2.1rem;
+}
+
+
+/* ----for mobiles---- */
+@media only screen and (max-width: 768px){
+    *{
+        margin: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth !important;
+    }
+    .container{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+    }
+    .text{
+        font-size: 1.5rem;
+    }
+    .navBar{
+        position: fixed;
+        width: 50%;
+        height: 100vh;
+        background: #1d1a39;
+        ;
+        right: 0%;
+        padding: 3rem 2rem;
+        z-index: 10;
+        padding-left: 0;
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+        transition: 150ms ease-in-out;
+        -webkit-transition: 150ms ease-in-out;
+        -moz-transition: 150ms ease-in-out;
+        -ms-transition: 150ms ease-in-out;
+        -o-transition: 150ms ease-in-out;
+}
+    .navBar ul{
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 1rem;
+        padding-top: 4rem;
+    }
+    .navBar li a{
+        padding: 20px 30px;
+    }
+    .nav-toggle{
+        display: block;
+        position: absolute;
+        border: 0;
+        width: 2.2rem;
+        aspect-ratio: 1;
+        top: 1.5rem;
+        right: 2rem;
+        cursor: pointer;
+    }
+    .open{
+        z-index: 10;
+        border-radius: .3rem;
+        -webkit-border-radius: .3rem;
+        -moz-border-radius: .3rem;
+        -ms-border-radius: .3rem;
+        -o-border-radius: .3rem;
+        position: fixed;
+}
+    .close{
+        z-index: 1000;
+    }
+    .hostelBImg{
+        object-fit: cover;
+        margin: 0;
+        z-index: -10;
+    }
+    .upper{
+        display: block;
+        position: fixed;
+        top: 0;
+        padding: 2rem;
+        background: white;
+        width: 100%;
+        z-index: 0;
+    }
+    .intro{
+        background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+    }
+    
+    .intro__text{
+        padding: 2rem;
+        padding-top: 0;
+        width: 100%;
+        color: #fff;
+        margin: 3rem 0;
+        font-size: .8rem;
+        background: none;
+    }
+    .intro__text h2{
+        border-bottom: #fff solid 2px;
+        padding-bottom: 1rem;
+        padding-top: 0;
+
+    }
+    
+    .gallery{
+        padding: 1rem;
+        margin: .8rem auto;
+        width: 100%;
+    }
+    .gallery h3{
+        padding: 1rem 0 1rem 1rem;
+        font-size: 1.5rem;
+        color: #5a5a92;
+        letter-spacing: 1.5px;
+    }
+    figcaption{
+        font-weight: normal;
+    }
+    .gallery__images{
+        flex-direction: row;
+        gap: 1rem;
+        overflow-x: scroll;
+        margin: 1rem auto;
+        padding-bottom: 2.5rem;
+    }
+    .gallery__images--image{
+        width: 400px;
+        height: 300px;
+    }
+}
