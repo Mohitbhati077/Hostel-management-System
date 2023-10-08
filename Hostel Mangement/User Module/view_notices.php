@@ -21,7 +21,7 @@ $result = mysqli_query($conn, $query);
     </header>
     <main>
         <section class="notice-list">
-            <h2>Notices Sent</h2>
+            <h2>View Noticesss</h2>
             <table>
                 <tr>
                     <th>Title</th>
