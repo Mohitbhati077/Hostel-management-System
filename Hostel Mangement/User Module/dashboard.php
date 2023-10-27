@@ -1,3 +1,17 @@
+<?php
+session_start();
+if(!isset($_SESSION['s_id'])){
+    header("Location:login.html");
+    exit();
+}
+include 'db_connect.php';
+
+$studentid=$_SESSION['s_id'];
+$reminderquery="SELECT * FROM reminder WHERE s_id= $studentid ORDER BY read_status ASC,sent_date DESC";
+$reminderresult=mysqli_query($conn,$reminderquery);
+$hasReminders = mysqli_num_rows($reminderresult) > 0;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +29,8 @@
             </div>
             <nav class="navbar">
                 <ul>
-                    <li class="nav-list"><img src="images/home.svg" alt="" class="nav-list__logo"><a href="dashboard.html">Home</a></li>
-                    <li class="nav-list"><img src="images/notice.svg" alt="" class="nav-list__logo"><a href="#notice">Notice</a></li>
+                    <li class="nav-list"><img src="images/home.svg" alt="" class="nav-list__logo"><a href="dashboard.php">Home</a></li>
+                    <li class="nav-list"><img src="images/notice.svg" alt="" class="nav-list__logo"><a href="view_notices.php">Notice</a></li>
                     <li class="nav-list"><img src="images/reminder.svg" alt="" class="nav-list__logo"><a href="#reminders">Reminders</a></li>
                     <li class="nav-list"><img src="images/lstfound.svg" alt="" class="nav-list__logo"><a href="#lostFound">Lost&Found</a></li>
                     <li class="nav-list"><img src="images/review.svg" alt="" class="nav-list__logo"><a href="#reviews">Reviews</a></li>
@@ -27,14 +41,14 @@
             <img src="images/profile-circle.svg" alt="" class="profile">
         </header>
         <?php
-             include 'db_connect.php';
-             $query="SELECT * FROM notices";
+             
+             $query="SELECT * FROM notices ORDER BY created_at DESC";
              $result=mysqli_query($conn,$query);
              $notices=array();
              while($notice=mysqli_fetch_assoc($result)){
                 $notices[]=$notice;
              }
-             mysqli_close($conn);
+            //  mysqli_close($conn);
         ?>
         <div class="screen">
             <div class="notice screen-div" id="notice">
@@ -66,6 +80,29 @@
             <div class="reminders screen-div" id="reminders">
                 <p class="sub-title">Reminders</p>
                 <div class="border"></div>
+                <ul>
+        <?php while ($reminder = mysqli_fetch_assoc($reminderresult)) { ?>
+            <li>
+                <?php
+                if ($reminder['read_status'] == '0') {
+                    // Mark the reminder as read when displayed
+                    $reminderId = $reminder['reminder_id'];
+                    mysqli_query($conn, "UPDATE reminder SET read_status = '1' WHERE reminder_id = $reminderId");
+                }
+                ?>
+                <p><?php echo $reminder['title']; ?></p>
+                <p><?php echo $reminder['message']; ?></p>
+                <p>Sent on: <?php echo $reminder['sent_date']; ?></p>
+                <?php if ($reminder['read_status'] == '0') { ?>
+                    <p>Status: Unread</p>
+                <?php } else { ?>
+                    <p>Status: Read</p>
+                <?php } ?>
+            </li>
+        <?php } ?>
+    </ul>
+    
+
             </div>
             <div class="lostFound screen-div" id="lostFound">
                 <p class="sub-title">Lost and Found</p>
