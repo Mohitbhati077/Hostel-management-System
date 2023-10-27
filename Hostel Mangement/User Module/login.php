@@ -14,7 +14,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         $studentID = $_SESSION['s_id'];
         $paymentQuery = "SELECT * FROM payment_record WHERE s_id = '$studentID'";
         $paymentResult = mysqli_query($conn, $paymentQuery);
-        
+
         $resquery = "SELECT * FROM reservation WHERE s_id=" . $_SESSION['s_id'];
         $reservresult = mysqli_query($conn, $resquery);
 
@@ -38,7 +38,7 @@ if ($result && mysqli_num_rows($result) > 0) {
             }
         } else {
         echo "Invalid password";
-    } 
+    }
 }
 else {
     echo "Invalid email.";
