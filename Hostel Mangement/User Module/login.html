@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login </title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Login</h1>
-        <form action="login.php" method="post">
-        <input type="email" name="email" placeholder="Email" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <button type="submit">Sign In</button>
-        <p>Don't Have an Account?<a href="register.html"><b>Sign Up Now</b></a></p>
-    </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="parent">
+        <div class="up flex">
+          <p class="heading">Ready to continue your hostel adventure? Sign in here</p>
+          <div class="formContainer">
+            <form action="login.php" method="post" class="form flex">
+              <p>Knock Knock!</p>
+                <input type="email" name="email" placeholder="Email" required />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
+                <div class="pw-error"></div>
+                <button type="submit">Get In</button>
+                <p>
+                  Don't Have an Account?<a href="register.html">&#160;<b>Sign Up Now</b></a>
+                </p>
+              </form>
+        </div>
+        </div>
+      <div class="down">
+        <div class="down__image">
+          <img src="images/login.png" alt="" class="loginImage">
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

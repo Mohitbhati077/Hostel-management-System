@@ -74,7 +74,7 @@ $reservationresult=mysqli_query($conn,$reservationquery);
                            $currentoccupants=$occupantdata['num_occupants'];
                            $updateroomquery="UPDATE rooms SET Occupants=$currentoccupants WHERE RoomId=$roomid";
                            mysqli_query($conn,$updateroomquery);
-                           if($currentoccupants>=4){
+                           if($currentoccupants==4){
                             $updateroomquery="UPDATE rooms SET Availablility='Not Available' WHERE RoomId=$roomid";
                             mysqli_query($conn,$updateroomquery);
                            }
