@@ -5,7 +5,7 @@ if(!isset($_SESSION['admin_id'])){
     exit();
 }
 include 'db_connect.php';
-$reservationquery="SELECT r.resid,r.s_id,r.RoomId,r.name,r.status,p.payment_status,rm.RoomNo FROM reservation r
+$reservationquery="SELECT r.resid,r.s_id,r.RoomId,r.name,r.status,p.payment_status,rm.RoomNo, rm.Capacity  FROM reservation r
 LEFT JOIN payment_record p ON r.s_id=p.s_id 
 LEFT JOIN rooms rm ON r.RoomId=rm.RoomId";
 $reservationresult=mysqli_query($conn,$reservationquery);
@@ -39,7 +39,7 @@ $reservationresult=mysqli_query($conn,$reservationquery);
     </div>
      <main>
           <section class="manage_payment">
-            <h2>Manage Reservation</h2>
+            <h2>Manage Reservationss</h2>
             <table>
                 <tr>
                     <th>Reservation Id</th>
@@ -74,9 +74,9 @@ $reservationresult=mysqli_query($conn,$reservationquery);
                            $currentoccupants=$occupantdata['num_occupants'];
                            $updateroomquery="UPDATE rooms SET Occupants=$currentoccupants WHERE RoomId=$roomid";
                            mysqli_query($conn,$updateroomquery);
-                           if($currentoccupants==4){
-                            $updateroomquery="UPDATE rooms SET Availablility='Not Available' WHERE RoomId=$roomid";
-                            mysqli_query($conn,$updateroomquery);
+                           if ($currentoccupants >= $reservationrecord['Capacity']) {
+                            $updateroomquery = "UPDATE rooms SET Availablility='Not Available' WHERE RoomId=$roomid";
+                            mysqli_query($conn, $updateroomquery);
                            }
                         }
                         ?>
