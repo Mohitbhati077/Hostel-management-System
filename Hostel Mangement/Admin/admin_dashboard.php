@@ -53,6 +53,7 @@ mysqli_close($conn);
             <li><a href="manage_payment.php">Manage Payment</a></li>
             <li><a href="notice.html">Notice</a></li>
             <li><a href="reminder.php">Reminder</a></li>
+            <li><a href="lost_found.php">Lost and found</a></li>
             <li><a href="#" id="logout">Log Out</a></li>
         </ul>
     </nav>

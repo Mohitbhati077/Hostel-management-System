@@ -5,6 +5,19 @@ if(!isset($_SESSION['s_id'])){
     exit();
 }
 include 'db_connect.php';
+// $student_id = $_SESSION['s_id'];
+// $profilequery = "SELECT name, email FROM students WHERE s_id = $student_id";
+// $profileresult = mysqli_query($conn, $profilequery);
+
+// if ($profileresult && mysqli_num_rows($profileresult) > 0) {
+//     $row = mysqli_fetch_assoc($profileresult);
+//     $studentName = $row['name'];
+//     $studentEmail = $row['email'];
+// } else {
+//     // Handle the case where the student's data couldn't be retrieved
+//     $studentName = "Unknown"; // Provide a default name
+//     $studentEmail = "Unknown"; // Provide a default email
+// }
 
 $studentid=$_SESSION['s_id'];
 $reminderquery="SELECT * FROM reminder WHERE s_id= $studentid ORDER BY read_status ASC,sent_date DESC";
@@ -32,13 +45,48 @@ $hasReminders = mysqli_num_rows($reminderresult) > 0;
                     <li class="nav-list"><img src="images/home.svg" alt="" class="nav-list__logo"><a href="dashboard.php">Home</a></li>
                     <li class="nav-list"><img src="images/notice.svg" alt="" class="nav-list__logo"><a href="view_notices.php">Notice</a></li>
                     <li class="nav-list"><img src="images/reminder.svg" alt="" class="nav-list__logo"><a href="#reminders">Reminders</a></li>
-                    <li class="nav-list"><img src="images/lstfound.svg" alt="" class="nav-list__logo"><a href="#lostFound">Lost&Found</a></li>
-                    <li class="nav-list"><img src="images/review.svg" alt="" class="nav-list__logo"><a href="#reviews">Reviews</a></li>
+                    <li class="nav-list"><img src="images/lstfound.svg" alt="" class="nav-list__logo"><a href="lost_found.php">Lost&Found</a></li>
+                    <li class="nav-list"><img src="images/review.svg" alt="" class="nav-list__logo"><a href="review.php">Reviews</a></li>
                 </ul>
             </nav>
         </div>
         <header>
-            <img src="images/profile-circle.svg" alt="" class="profile">
+        <img src="images/profile-circle.svg" class="profile" id="profile-image" onclick="toggleMenu()">
+
+        <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <!-- <h2>Mohit Bhati</h2> -->
+                    <?php
+           
+                        include 'db_connect.php'; 
+
+                        $student_id = $_SESSION['s_id'];
+                        $query = "SELECT f_name FROM students WHERE s_id = $student_id";
+                        $result = mysqli_query($conn, $query);
+
+                         if ($result && mysqli_num_rows($result) > 0) {
+                         $row = mysqli_fetch_assoc($result);
+                        $studentName = $row['f_name'];
+                        echo "<h2> Hello,$studentName</h2>";
+            } else {
+               
+                        echo "<h2>Unknown</h2>";
+            }
+            //mysqli_close($conn);
+            ?>
+                </div>
+                <a href="editprofile.php" class="sub-menu-link">
+                    <p>Edit Profile</p>
+                    <span>></span>
+                </a>
+                <a href="logout.php" class="sub-menu-link">
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+            </div>
+
+        </div>
         </header>
         <?php
              
@@ -107,6 +155,8 @@ $hasReminders = mysqli_num_rows($reminderresult) > 0;
             <div class="lostFound screen-div" id="lostFound">
                 <p class="sub-title">Lost and Found</p>
                 <div class="border"></div>
+                
+
             </div>
             <div class="reviews screen-div" id="reviews">
                 <p class="sub-title">Reviews</p>
@@ -120,16 +170,58 @@ $hasReminders = mysqli_num_rows($reminderresult) > 0;
 
     // Function to redirect to the "view notice" page
     function redirectToViewNoticesPage() {
-        window.location.href = 'view_notices.php'; // Change 'view_notices.php' to the actual URL of your view notice page
+        window.location.href = 'view_notices.php'; 
     }
 
-    // Attach a click event to the "View More Notices" button
+    
     if (viewMoreButton) {
         viewMoreButton.addEventListener('click', redirectToViewNoticesPage);
     }
 });
 
+// const profileImage = document.getElementById('profile-image');
+// const profileDropdown = document.getElementById('profile-dropdown');
 
-    </script>
+// profileImage.addEventListener('click', function (event) {
+//     event.stopPropagation(); // Prevent the click event from propagating
+//     profileDropdown.style.display = (profileDropdown.style.display === 'block') ? 'none' : 'block';
+// });
+
+// // Close the dropdown when clicking outside of it
+// document.addEventListener('click', function (event) {
+//     if (event.target !== profileImage) {
+//         profileDropdown.style.display = 'none';
+//     }
+// });
+// profileImage.addEventListener('click', function (event) {
+//     event.stopPropagation();
+//     profileContainer.classList.toggle('open');
+// });
+
+// document.addEventListener('click', function (event) {
+//     if (event.target !== profileImage) {
+//         profileContainer.classList.remove('open');
+//     }
+// });
+ </script>
+<script>
+    let subMenu=document.getElementById("subMenu");
+    function toggleMenu(){
+        subMenu.classList.toggle("open-menu");
+    }
+</script>
+<script>
+     document.addEventListener('DOMContentLoaded',function(){
+            var logoutbutton=document.getElementById('logout');
+            logoutbutton.addEventListener('click',function(event){
+                event.preventDefault();
+                var confirmLogout=confirm("Are you sure you want to log out?");
+                if(confirmLogout){
+                    window.location.href='logout.php';
+                }
+            });
+        });
+</script>
+    
 </body>
 </html>

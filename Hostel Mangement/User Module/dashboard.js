@@ -20,3 +20,27 @@
 //         viewMoreButton.addEventListener('click', showRemainingNotices);
 //     }
 // });
+const profileImage = document.getElementById('profile-image');
+const profileDropdown = document.getElementById('profile-dropdown');
+
+profileImage.addEventListener('click', function (event) {
+    event.stopPropagation(); // Prevent the click event from propagating
+    profileDropdown.style.display = (profileDropdown.style.display === 'block') ? 'none' : 'block';
+});
+
+// Close the dropdown when clicking outside of it
+document.addEventListener('click', function (event) {
+    if (event.target !== profileImage) {
+        profileDropdown.style.display = 'none';
+    }
+});
+profileImage.addEventListener('click', function (event) {
+    event.stopPropagation();
+    profileContainer.classList.toggle('open');
+});
+
+document.addEventListener('click', function (event) {
+    if (event.target !== profileImage) {
+        profileContainer.classList.remove('open');
+    }
+});
