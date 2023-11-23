@@ -27,6 +27,18 @@ mysqli_close($conn);
     <title>Wait Confirmation</title>
     <link rel="stylesheet" href="wait_for_confirmation.css">
     <script src="https://kit.fontawesome.com/19461f0c8d.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            var logoutbutton=document.getElementById('logout');
+            logoutbutton.addEventListener('click',function(event){
+                event.preventDefault();
+                var confirmLogout=confirm("Are you sure you want to log out?");
+                if(confirmLogout){
+                    window.location.href='logout.php';
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="container">
@@ -34,11 +46,11 @@ mysqli_close($conn);
         <div class="title">
                 <a href="home.html"><img src="images/logo.svg" alt="logo"></a><p>ICCS</p>
         </div>
-        <a href=""><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>  Sign Out</a>
+        <a href="login.html" id="logout"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>  Sign Out</a>
     </nav>
     <p class="heading">Wait for Confirmation</p>
     <p class="info">
-    Hey Mate! We're excited to have you as part of our vibrant hostel community at ICCS. At this stage, your payment has been securely received and is currently undergoing a meticulous verification process.<br><br> We truly appreciate your choice to stay with us, and we're committed to making your transition into your new accommodation a seamless one. Kindly be patient with the process.<br><br><br>
+    Hey Mate! We're excited to have you as part of our vibrant hostel community at ICCS. At this stage, your payment has been securely received and is currently undergoing a meticulous verification process.<br><br> We truly appreciate your choice to stay with us. Kindly be patient with the process.<br><br><br>
     <strong>Contact Us</strong><br>
     If you're facing any trouble or you want to reach out to us, feel free to connect :)<br><br>
     <i>+91 9123456780</i><br>

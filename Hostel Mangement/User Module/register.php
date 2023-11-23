@@ -7,14 +7,14 @@
   $cpassword=$_POST['cpassword'];
    
   if($password!=$cpassword){
-    echo "Password do not match.Please try again.";
+    echo "<script>alert('Password do not match.Please try again.');window.location.href='register.html';</script>";
   }else{
     $checkquery="SELECT COUNT(*) as count FROM students WHERE email='$email'";
     $checkresult=mysqli_query($conn,$checkquery);
     if($checkresult){
         $row=mysqli_fetch_assoc($checkresult);
         if($row['count']>0){
-            echo "Email already exits.Please Login";
+            echo "<script>alert('Email already exits.Please Login.');window.location.href='register.html';</script>";
         }else{
             $hashedpassword=password_hash($password,PASSWORD_DEFAULT);
             $insertquery="INSERT INTO students(f_name,l_name,email,password) VALUES('$firstname','$lastname','$email','$hashedpassword')";
@@ -22,7 +22,7 @@
             if($insertresult){
                echo"<script>alert('Registration successfull!');window.location.href='login.html';</script>";
             }else{
-                echo"Registration Failed";
+                echo"<script>alert('Registration Failed.');window.location.href='register.html';</script>";
             }
         }
     }else{

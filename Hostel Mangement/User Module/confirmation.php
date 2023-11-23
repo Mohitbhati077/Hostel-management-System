@@ -5,7 +5,7 @@ session_start();
 if(isset($_SESSION['s_id'])) {
     $studentID = $_SESSION['s_id'];
 
-    $query = "SELECT resid, name, address, dob, phone, state, city, clgname, status FROM reservation WHERE s_id = '$studentID'";
+    $query = "SELECT resid, name, address, phone, state, city, clgname, status FROM reservation WHERE s_id = '$studentID'";
     $result = mysqli_query($conn, $query);
 
     if($result && mysqli_num_rows($result) > 0) {
@@ -15,7 +15,6 @@ if(isset($_SESSION['s_id'])) {
         $resID = $row['resid'];
         $name = $row['name'];
         $address = $row['address'];
-        $dob = $row['dob'];
         $phone = $row['phone'];
         $state = $row['state'];
         $city = $row['city'];
