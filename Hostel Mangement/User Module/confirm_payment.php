@@ -44,10 +44,10 @@ mysqli_close($conn);
                 <p><span>UPI:</span> user123@hdfcbank</p>
             </div>
             <div class="price">
-                <h2>Monthly Room Rent- <i class="fa-solid fa-indian-rupee-sign"></i><?php echo $roomfee;?></h2>
+                <h2>Monthly Room Charge <i class="fa-solid fa-indian-rupee-sign"></i><?php echo $roomfee;?></h2>
                 <?php 
                 if($messservice==1){
-                    echo "<h2>Monthly Mess Charge- <i class='fa-solid fa-indian-rupee-sign'></i>".$messfee."</h2>";
+                    echo "<h2>Monthly Mess Charge <i class='fa-solid fa-indian-rupee-sign'></i>".$messfee."</h2>";
                 }
                 ?>
             </div>

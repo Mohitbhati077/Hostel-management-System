@@ -30,8 +30,8 @@ if(!isset($_SESSION['s_id'])){
                 <p><span>UPI:</span> user123@hdfcbank</p>
                 </div>
                 <div class="price">
-                <h2>Monthly Room Charge- <i class="fa-solid fa-indian-rupee-sign"></i>3000</h2>
-                <h2>Monthly Mess Charge- <i class="fa-solid fa-indian-rupee-sign"></i>1000</h2>
+                <h2>Monthly Room Charge <i class="fa-solid fa-indian-rupee-sign"></i>3000</h2>
+                <h2>Monthly Mess Charge <i class="fa-solid fa-indian-rupee-sign"></i>1000</h2>
             </div>
         </div>
     <form action="confirm_payment.php" method="post" class="form">

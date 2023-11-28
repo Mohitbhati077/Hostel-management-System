@@ -19,13 +19,26 @@ $hasReminders = mysqli_num_rows($reminderresult) > 0;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
+    <script src="https://kit.fontawesome.com/19461f0c8d.js" crossorigin="anonymous"></script>
     <!-- <script src="dashboard.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            var logoutbutton=document.getElementById('logout');
+            logoutbutton.addEventListener('click',function(event){
+                event.preventDefault();
+                var confirmLogout=confirm("Are you sure you want to log out?");
+                if(confirmLogout){
+                    window.location.href='logout.php';
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="parent">
         <div class="nav">
             <div class="title">
-                <img src="images/logo.svg" alt="logo"><p>CCS</p>
+                <img src="images/logo.svg" alt="logo"><p>ICCS</p>
             </div>
             <nav class="navbar">
                 <ul>
@@ -35,10 +48,13 @@ $hasReminders = mysqli_num_rows($reminderresult) > 0;
                     <li class="nav-list"><img src="images/lstfound.svg" alt="" class="nav-list__logo"><a href="#lostFound">Lost&Found</a></li>
                     <li class="nav-list"><img src="images/review.svg" alt="" class="nav-list__logo"><a href="#reviews">Reviews</a></li>
                 </ul>
+                <p class="nav-list signOut"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i><a href="login.html" id="logout">Sign Out</a></p>
             </nav>
         </div>
         <header>
-            <img src="images/profile-circle.svg" alt="" class="profile">
+            <div class="icon_wrapper">
+            <img src="images/profileblue.svg" alt="" class="profile">
+            </div>
         </header>
         <?php
              
@@ -59,8 +75,8 @@ $hasReminders = mysqli_num_rows($reminderresult) > 0;
                           $count=0;
                           foreach($notices as $notice){
                             if($count<2){
-                            echo '<li>';
-                            echo '<strong>' .$notice['title'].'</strong>';
+                            echo '<li class="notice__point">';
+                            echo '<strong style="color: darkcyan;">' .$notice['title'].'</strong>';
                             echo '<p>' .$notice['message'].'</p>';
                             echo '<p>' .$notice['created_at'].'</p>';
                             echo '</li>';
@@ -73,16 +89,16 @@ $hasReminders = mysqli_num_rows($reminderresult) > 0;
                 </ul>
                 <?php
                 if(count($notices)>2){
-                echo '<a href="view_notices.php" id="viewMoreNotices">View More Notices</a>';
+                echo '<a href="view_notices.php" id="viewMoreNotices" class="view_more">View More Notices</a>';
                 }
                 ?>
             </div>
-            <div class="reminders screen-div" id="reminders">
+            <div class="reminders screen-div notice" id="reminders">
                 <p class="sub-title">Reminders</p>
                 <div class="border"></div>
                 <ul>
         <?php while ($reminder = mysqli_fetch_assoc($reminderresult)) { ?>
-            <li>
+            <li class="notice__point">
                 <?php
                 if ($reminder['read_status'] == '0') {
                     // Mark the reminder as read when displayed
@@ -90,13 +106,13 @@ $hasReminders = mysqli_num_rows($reminderresult) > 0;
                     mysqli_query($conn, "UPDATE reminder SET read_status = '1' WHERE reminder_id = $reminderId");
                 }
                 ?>
-                <p><?php echo $reminder['title']; ?></p>
+                <strong style="color: rgb(88, 184, 94);"><?php echo $reminder['title']; ?></strong>
                 <p><?php echo $reminder['message']; ?></p>
                 <p>Sent on: <?php echo $reminder['sent_date']; ?></p>
                 <?php if ($reminder['read_status'] == '0') { ?>
-                    <p>Status: Unread</p>
+                    <p>Status:<span style="color: green;"> Unread</span></p>
                 <?php } else { ?>
-                    <p>Status: Read</p>
+                    <p>Status: <span style="color: cornflowerblue;">Read</span></p>
                 <?php } ?>
             </li>
         <?php } ?>
